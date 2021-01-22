@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LSPD_First_Response.Mod.API;
 using Rage;
+using SquareCallouts.Callouts;
 
 namespace SquareCallouts
 {
@@ -24,7 +25,7 @@ namespace SquareCallouts
         private void Functions_OnOnDutyStateChanged(bool onDuty)
         {
             Configuration.Load();
-            if (Configuration.EnableGroupOfPersonsCallout) Common.Output("WIP"); // TODO implement callout
+            if (Configuration.EnableGroupOfPersonsCallout) Functions.RegisterCallout(typeof(Gathering));
         }
     }
 }

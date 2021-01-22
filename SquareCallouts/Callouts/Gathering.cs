@@ -11,6 +11,7 @@ using SquareCallouts.Utils;
 
 namespace SquareCallouts.Callouts
 {
+    [CalloutInfo("Gathering", CalloutProbability.Medium)]
     public class Gathering : CalloutBase
     {
         private List<Ped> peds = new List<Ped>();
@@ -49,8 +50,11 @@ namespace SquareCallouts.Callouts
                 ped.IsPersistent = true;
                 ped.BlockPermanentEvents = true;
                 ped.CanPlayAmbientAnimations = true;
+                peds.Add(ped);
             }
             Blip = new Blip(SpawnPoint.Around2D(100f), 250f);
+            Blip.IsRouteEnabled = true;
+            Blip.Alpha = 0.5f;
 
             RadioHelper.DisplayDispatchNote("Arrest the suspects and return to the station for questioning.");
             Game.DisplayNotification("Suspects may be shown as ~r~dead~w~ if you arrest them by ~b~Stop The Ped.");
