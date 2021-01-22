@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Rage;
+using Rage.Native;
 
 namespace SquareCallouts
 {
@@ -20,5 +21,7 @@ namespace SquareCallouts
             EnableGroupOfPersonsCallout = SettingsFile.ReadBoolean("Flags", "EnableGathering", true);
             FreezeKey = SettingsFile.ReadEnum<Keys>("Keys", "FreezeKey", Keys.Y);
         }
+
+
     }
 }
